@@ -5,4 +5,5 @@ module.exports = function(app) {
     app
         .route('/autores')
         .get(api.listagem)
+        .post(api.cadastrar)
 }
