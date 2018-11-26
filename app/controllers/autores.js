@@ -2,7 +2,7 @@ var mongoose = require('mongoose');
 var api = {};
 var autores = mongoose.model('autores');
 
-api.listagem = function(req, res) {
+api.listar = function(req, res) {
 
     autores
         .find({})
@@ -73,6 +73,23 @@ api.atualizar = function(req, res) {
                 message: erro.message
             })
         });
+};
+
+api.remover = function(req, res) {
+
+    autores
+        .deleteOne({ _id: req.params.id })
+        .then(() => {
+            console.log('Autor removido com sucesso ' + req.params.id);
+            res.sendStatus(200)
+        }, erro => {
+
+            console.log(erro.message);
+            res.json({
+                status: 'Não foi possível remover o autor ' + req.params.id,
+                message: erro.message
+            })
+        })
 };
 
 module.exports = api;

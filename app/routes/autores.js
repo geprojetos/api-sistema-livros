@@ -4,11 +4,12 @@ module.exports = function(app) {
 
     app
         .route('/autores')
-        .get(api.listagem)
+        .get(api.listar)
         .post(api.cadastrar)
 
     app
         .route('/autores/:id')
         .get(api.buscar)
         .put(api.atualizar)
+        .delete(api.remover)
 }
