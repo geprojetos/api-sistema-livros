@@ -10,4 +10,5 @@ module.exports = function(app) {
     app
         .route('/autores/:id')
         .get(api.buscar)
+        .put(api.atualizar)
 }

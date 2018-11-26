@@ -12,7 +12,7 @@ api.listagem = function(req, res) {
             res.json(autores);
         }, erro => {
 
-            console.log(erro);
+            console.log(erro.message);
             res.json({
                 status: 'Não foi possível listar os autores cadastrados',
                 message: erro.message,
@@ -29,8 +29,8 @@ api.cadastrar = function(req, res) {
             console.log('Autor cadastrado com sucesso ' + autor);
             res.json(autor)
         }, erro => {
-            
-            console.log(erro);
+
+            console.log(erro.message);
             res.json({
                 status: 'Não foi possivel cadastrar o autor ' + autor,
                 message: erro.message,
@@ -55,7 +55,24 @@ api.buscar = function(req, res) {
                 message: erro.message,
             })
         });
-    
+};
+
+api.atualizar = function(req, res) {
+
+    autores
+        .findByIdAndUpdate(req.params.id, req.body)    
+        .then(autor => {
+
+            console.log('Autor atualizado com sucesso ' + autor);
+            res.json(autor);
+        }, erro => {
+
+            console.log(erro.message);
+            res.json({
+                status: 'Não foi possível atualizar o autor ' + autor,
+                message: erro.message
+            })
+        });
 };
 
 module.exports = api;
