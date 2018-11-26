@@ -1,0 +1,22 @@
+sudo systemctl start mongodb
+sudo systemctl stop mongodb
+sudo systemctl status mongodb
+
+------------------------------------
+
+Subindo servidor local (dentro pasta bin)
+    mongod --dbpath caminho-banco/db
+
+Subindo usando o cliente do mongo linha de comando
+    mongo
+
+------------------------------------
+
+POST
+    curl http://localhost:3000/nome-api -X POST -v -H "Content-type: application/json" -d @nome-pasta/arquivo.json | json_pp
+
+PUT
+    curl -H "Content-type: application/json" -X PUT -d '{"nome":"categoria alterada"}' http://localhost:3000/nome-api/colocar-id
+
+DELETE
+    curl -H "Content-type: application/json" -X DELETE http://localhost:3000/nome-api/colocar-id
