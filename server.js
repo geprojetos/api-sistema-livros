@@ -1,5 +1,6 @@
 var http    = require('http');
 var app     = require('./config/express');
+require('./config/database')('localhost/sistema-livros');
 
 http
     .createServer(app)
