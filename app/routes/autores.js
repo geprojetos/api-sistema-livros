@@ -6,4 +6,8 @@ module.exports = function(app) {
         .route('/autores')
         .get(api.listagem)
         .post(api.cadastrar)
+
+    app
+        .route('/autores/:id')
+        .get(api.buscar)
 }

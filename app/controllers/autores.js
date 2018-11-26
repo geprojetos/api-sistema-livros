@@ -29,6 +29,25 @@ api.cadastrar = function(req, res) {
             res.status(500).json(erro)
         });
     
-}
+};
+
+api.buscar = function(req, res) {
+
+    autores
+        .findById(req.params.id)    
+        .then(autor => {
+            
+            console.log('Autor encontrado com sucesso ' + autor);
+            res.json(autor);
+        }, erro => {
+            
+            console.log('Autor não encontrado ' + req.params.id);
+            res.json({
+                status: 'Não foi possivel encontrar o autor ' + req.params.id,
+                message: erro.message,
+            })
+        });
+    
+};
 
 module.exports = api;
