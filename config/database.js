@@ -2,7 +2,7 @@ module.exports = function(uri) {
 
     var mongoose = require('mongoose');
 
-    mongoose.connect('mongodb://' + uri);
+    mongoose.connect('mongodb://' + uri, { useNewUrlParser: true });
 
     mongoose.connection.on('connected', function(){
 
