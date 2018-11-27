@@ -75,4 +75,10 @@ api.atualizar = function(req, res) {
         });
 };
 
+api.remover = function(req, res) {
+
+    console.log('Removendo livro');
+    
+};
+
 module.exports = api;
