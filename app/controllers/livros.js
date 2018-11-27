@@ -57,4 +57,9 @@ api.buscar = function(req, res) {
         })
 };
 
+api.atualizar = function(req, res) {
+
+    console.log('Atualizando livro');
+}
+
 module.exports = api;

@@ -9,4 +9,5 @@ module.exports = function(app) {
 
     app.route('/livros/:id')
         .get(api.buscar)
+        .put(api.atualizar)
 }
