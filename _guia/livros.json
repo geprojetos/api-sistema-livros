@@ -3,5 +3,15 @@
         "titulo": "Livro 1",
         "autor": "Autor 1",
         "preco": 10.99
+    },
+    {
+        "titulo": "Livro 2",
+        "autor": "Autor 2",
+        "preco": 12.99
+    },
+    {
+        "titulo": "Livro 3",
+        "autor": "Autor 3",
+        "preco": 13.99
     }
 ]

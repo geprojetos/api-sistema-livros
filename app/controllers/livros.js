@@ -77,8 +77,20 @@ api.atualizar = function(req, res) {
 
 api.remover = function(req, res) {
 
-    console.log('Removendo livro');
-    
+    livros
+        .deleteOne({ _id: req.params.id })
+        .then(() => {
+
+            console.log('Livro removido com sucesso ' + req.params.id);
+            res.sendStatus(200);
+        }, erro => {
+
+            console.log(erro.message);
+            res.json({
+                status: 'Naõ foi possível remover o livro ' + req.params.id,
+                message: erro.message
+            })
+        });
 };
 
 module.exports = api;

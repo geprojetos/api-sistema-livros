@@ -79,9 +79,10 @@ api.remover = function(req, res) {
 
     autores
         .deleteOne({ _id: req.params.id })
-        .then(() => {
+        .then( () => {
+
             console.log('Autor removido com sucesso ' + req.params.id);
-            res.sendStatus(200)
+            res.sendStatus(200);
         }, erro => {
 
             console.log(erro.message);
