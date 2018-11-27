@@ -5,4 +5,5 @@ module.exports = function(app) {
     app
         .route('/livros')
         .get(api.listar)
+        .post(api.cadastrar)
 }
