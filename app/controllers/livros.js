@@ -59,7 +59,20 @@ api.buscar = function(req, res) {
 
 api.atualizar = function(req, res) {
 
-    console.log('Atualizando livro');
-}
+    livros
+        .findByIdAndUpdate(req.params.id, req.body)
+        .then(livro => {
+
+            console.log('Livro alterado com sucesso ' + livro);
+            res.json(livro);
+        }, erro => {
+
+            console.log(erro.message);
+            res.json({
+                status: 'Não foi possível alterar o livro ' + req.params.id,
+                message: erro.message
+            })
+        });
+};
 
 module.exports = api;

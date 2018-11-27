@@ -69,7 +69,7 @@ api.atualizar = function(req, res) {
 
             console.log(erro.message);
             res.json({
-                status: 'Não foi possível atualizar o autor ' + autor,
+                status: 'Não foi possível atualizar o autor ' + req.params.id,
                 message: erro.message
             })
         });
