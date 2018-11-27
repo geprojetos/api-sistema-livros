@@ -6,4 +6,7 @@ module.exports = function(app) {
         .route('/livros')
         .get(api.listar)
         .post(api.cadastrar)
+
+    app.route('/livros/:id')
+        .get(api.buscar)
 }

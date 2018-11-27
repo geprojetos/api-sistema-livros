@@ -39,4 +39,9 @@ api.cadastrar = function(req, res) {
     
 };
 
+api.buscar = function(req, res) {
+
+    console.log('Buscando livros');
+};
+
 module.exports = api;
