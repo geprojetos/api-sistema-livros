@@ -41,7 +41,20 @@ api.cadastrar = function(req, res) {
 
 api.buscar = function(req, res) {
 
-    console.log('Buscando livros');
+    livros
+        .findById(req.params.id)
+        .then(livro => {
+                
+            console.log('Livro encontrado com sucesso ' + livro);
+            res.json(livro);
+        }, erro => {
+
+            console.log(erro.message);
+            res.json({
+                status: 'Não foi possível encontrar o livro ' + req.params.id,
+                message: erro.message
+            })
+        })
 };
 
 module.exports = api;
