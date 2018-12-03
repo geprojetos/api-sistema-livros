@@ -9,6 +9,7 @@ app.use(bodyparser.json());
 consign({ cwd: 'app' })
     .include('models')
     .then('controllers')
+    .then('helpers')
     .then('routes')
     .into(app)
 

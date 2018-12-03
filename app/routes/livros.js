@@ -1,14 +1,15 @@
 module.exports = function(app) {
 
-    var api = app.controllers.livros;
+    const api       = app.controllers.livros;
+    const upload    = app.helpers.multer;
 
     app
         .route('/livros')
         .get(api.listar)
-        .post(api.cadastrar)
+        .post(upload.single('imagem'), api.cadastrar);
 
     app.route('/livros/:id')
         .get(api.buscar)
         .put(api.atualizar)
-        .delete(api.remover)
+        .delete(api.remover);
 }

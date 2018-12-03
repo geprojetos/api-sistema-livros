@@ -1,6 +1,10 @@
 var mongoose = require('mongoose');
 var livros = mongoose.Schema({
 
+    imagem: {
+        type: String,
+        require: true
+    },
     titulo: {
         type: String,
         require: true

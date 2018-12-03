@@ -22,21 +22,38 @@ api.listar = function(req, res) {
 
 api.cadastrar = function(req, res) {
 
-    livros
-        .create(req.body)
-        .then(livro => {
+    if(!req.file.mimetype == 'image/jpeg' || !req.file.mimetype == 'image/png') {
+        
+        console.log('Arquivo não permitido');
+        res.send('Arquivo não permitido');
+        return;
+    } else {
 
-            console.log('Livro cadastrado com sucesso ' + livro);
-            res.json(livro);
-        }, erro => {
+        const livro = [
+            {
+                imagem: req.file.path,
+                titulo: req.body.titulo,
+                autor: req.body.autor,
+                preco: req.body.preco
+            }
+        ];
 
-            console.log(erro.message);
-            res.json({
-                status: 'Não foi possível cadastrar o livro ' + livro,
-                message: erro.message
+        livros
+            .create(livro)
+            .then(livro => {
+                
+                // res.send('Livro cadastrado');
+                console.log('Livro cadastrado com sucesso ' + livro);
+                res.json(livro);
+            }, erro => {
+
+                console.log(erro.message);
+                res.json({
+                    status: 'Não foi possível cadastrar o livro ' + livro,
+                    message: erro.message
+                })
             })
-        })
-    
+    }
 };
 
 api.buscar = function(req, res) {
